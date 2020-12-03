@@ -6,7 +6,7 @@ import Modal from "./Modal"
 
 const Grocerylist = () => {
   const defaultState = {
-    list: JSON.parse(localStorage.getItem("list")),
+    list: JSON.parse(localStorage.getItem("list")) || [],
     isModalOpen: false,
     modalContent: "",
   }
