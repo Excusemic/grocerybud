@@ -54,20 +54,21 @@ const Grocerylist = () => {
         />
         <button type="submit">{isEdit ? "Edit" : "Add"}</button>
       </form>
-      {state.list.map((item) => {
-        return (
-          <div key={item.id} className="item">
-            <p>{item.item}</p>
-            <div>
-              <FiEdit onClick={() => handleEdit(item.item, item.id)} className="edititem" />
-              <RiDeleteBin6Line
-                onClick={() => dispatch({ type: "DELETE", payload: item.id })}
-                className="edititem"
-              />
+      {state.list &&
+        state.list.map((item) => {
+          return (
+            <div key={item.id} className="item">
+              <p>{item.item}</p>
+              <div>
+                <FiEdit onClick={() => handleEdit(item.item, item.id)} className="edititem" />
+                <RiDeleteBin6Line
+                  onClick={() => dispatch({ type: "DELETE", payload: item.id })}
+                  className="edititem"
+                />
+              </div>
             </div>
-          </div>
-        )
-      })}
+          )
+        })}
       <button className="reset" onClick={() => dispatch({ type: "CLEAR_LIST" })}>
         Clear Items
       </button>
